@@ -1,0 +1,167 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Electronics",
+            "subcategories": [
+                {
+                    "id": 1,
+                    "name": "Smart Phones",
+                    "slug": "smartphones"
+                },
+                {
+                    "id": 2,
+                    "name": "Laptops",
+                    "slug": "laptops"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Beauty",
+            "subcategories": [
+                {
+                    "id": 3,
+                    "name": "Fragrances",
+                    "slug": "fragrances"
+                },
+                {
+                    "id": 4,
+                    "name": "Skincare",
+                    "slug": "skincare"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Grocery",
+            "subcategories": [
+                {
+                    "id": 5,
+                    "name": "Groceries",
+                    "slug": "groceries"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Home",
+            "subcategories": [
+                {
+                    "id": 6,
+                    "name": "Home Decoration",
+                    "slug": "home-decoration"
+                },
+                {
+                    "id": 7,
+                    "name": "Furniture",
+                    "slug": "furniture"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Fashion",
+            "subcategories": [
+                {
+                    "id": 8,
+                    "name": "Tops",
+                    "slug": "tops"
+                },
+                {
+                    "id": 9,
+                    "name": "Womens Dresses",
+                    "slug": "womens-dresses"
+                },
+                {
+                    "id": 21,
+                    "name": "Mens Shirts",
+                    "slug": "mens-shirts"
+                },
+                {
+                    "id": 22,
+                    "name": "Mens Shoes",
+                    "slug": "mens-shoes"
+                },
+                {
+                    "id": 10,
+                    "name": "Womens Shoes",
+                    "slug": "womens-shoes"
+                },
+                {
+                    "id": 11,
+                    "name": "Shirts",
+                    "slug": "shirts"
+                },
+                {
+                    "id": 12,
+                    "name": "Shoes",
+                    "slug": "shoes"
+                },
+                {
+                    "id": 13,
+                    "name": "Mens Watches",
+                    "slug": "mens-watches"
+                },
+                {
+                    "id": 14,
+                    "name": "Womens Watches",
+                    "slug": "womens-watches"
+                },
+                {
+                    "id": 15,
+                    "name": "Bags",
+                    "slug": "womens-bags"
+                },
+                {
+                    "id": 16,
+                    "name": "Jewellery",
+                    "slug": "womens-jewellery"
+                },
+                {
+                    "id": 17,
+                    "name": "Sunglasses",
+                    "slug": "sunglasses"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Automotive",
+            "subcategories": [
+                {
+                    "id": 18,
+                    "name": "Automotive",
+                    "slug": "automotive"
+                },
+                {
+                    "id": 19,
+                    "name": "Motorcycle",
+                    "slug": "motorcycle"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Lighting",
+            "subcategories": [
+                {
+                    "id": 20,
+                    "name": "Lighting",
+                    "slug": "lighting"
+                }
+            ]
+        }
+    ],
+    "banners": [
+        {
+            "image": "https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Professional-E-Commerce-Shoes-Banner-Design.jpg"
+        },
+        {
+            "image": "https://img.freepik.com/free-vector/flat-interior-design-home-decor-webinar-template_23-2149612434.jpg"
+        },
+        {
+            "image": "https://as1.ftcdn.net/v2/jpg/02/19/97/02/1000_F_219970281_w4o6A634unEvLwsMOzgQOUYMNkpEA7cx.jpg"
+        }
+    ]
+}
