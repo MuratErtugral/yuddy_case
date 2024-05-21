@@ -1,20 +1,22 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Layout from "./components/Layout";
-import Banners from "./components/Banners";
-import Products from "./components/Products";
-import Brands from "./components/Brands";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <Layout>
-      <Header />
-      <Banners />
-      <Products />
-      <Brands />
-      <Footer />
-    </Layout>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

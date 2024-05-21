@@ -1,14 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/carts/cartSlice";
 import { MdErrorOutline } from "react-icons/md";
-import { FaSpinner } from 'react-icons/fa';
+import { FaSpinner } from "react-icons/fa";
 
 const ProductModal = ({ product, isOpen, onClose }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(product?.images[0] || "");
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setSelectedImage(product?.images[0]);
-    setQuantity(1);
+    if (product) {
+      setSelectedImage(product.images[0]);
+      setQuantity(1);
+    }
   }, [product]);
+
+  const handleAddToCart = () => {
+    const productToCart = {
+      ...product,
+      quantity,
+      discountPrice: (
+        product.price -
+        (product.price * product.discountPercentage) / 100
+      ).toFixed(2),
+    };
+    dispatch(addToCart(productToCart));
+    onClose();
+  };
 
   if (!isOpen || !product) return null;
 
@@ -24,19 +43,19 @@ const ProductModal = ({ product, isOpen, onClose }) => {
 
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-col md:w-1/2">
-          {selectedImage ? (
+            {selectedImage ? (
               <img
                 src={selectedImage}
                 alt={product?.title}
                 className="w-full h-72 object-fit mb-4"
               />
             ) : (
-              <div className="w-full h-72 flex items-center text-yuddyOrange justify-center mb-4">
+              <div className="w-full h-72 flex text-yuddyOrange items-center justify-center mb-4">
                 <FaSpinner className="text-4xl animate-spin" />
               </div>
             )}
             <div className="flex space-x-2 overflow-x-auto">
-              {product?.images.map((image, index) => (
+              {product.images.map((image, index) => (
                 <img
                   key={index}
                   src={image}
@@ -92,13 +111,17 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                 className="border px-2 py-1 w-16 text-center"
               />
             </div>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded w-full mb-2">
+            <button
+              onClick={handleAddToCart}
+              className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded w-full mb-2"
+            >
               Add to Cart
             </button>
-            {product?.stock <= 10 && (
+            {product.stock <= 10 && (
               <div className="text-red-500 flex items-center">
                 <MdErrorOutline className="mr-2" />
-                Last {product?.stock} {product?.stock > 1 ?"items" : "item"} in stock
+                Last {product?.stock} {product?.stock > 1 ? "items" : "item"} in
+                stock
               </div>
             )}
           </div>

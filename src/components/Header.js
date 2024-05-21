@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   FaBars,
   FaTimes,
@@ -14,6 +16,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
+
+  const cart = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
     axios
@@ -35,23 +39,22 @@ const Header = () => {
       <div className="bg-white ">
         <div className=" flex  xxl:mx-40  justify-between items-center p-4">
           <div className="flex items-center">
-            <button className="lg:hidden text-yuddyOrange " onClick={() => setIsOpen(!isOpen)}>
+            <button
+              className="lg:hidden text-yuddyOrange "
+              onClick={() => setIsOpen(!isOpen)}
+            >
               {isOpen ? (
                 <FaTimes className="text-lg" />
               ) : (
                 <FaBars className="text-lg" />
               )}
             </button>
-            <div className="flex gap-2 items-center">
-              <img
-                src="/logo.png"
-                alt="Yuddy Logo"
-                className="h-16"
-              />
+            <Link to="/" className="flex gap-2 items-center">
+              <img src="/logo.png" alt="Yuddy Logo" className="h-16" />
               <h1 className="text-4xl font-semibold font-cursive">
                 Yuddy Shop
               </h1>
-            </div>
+            </Link>
           </div>
           <div className="flex space-x-4 items-center">
             <div className="relative hidden lg:block ">
@@ -63,12 +66,12 @@ const Header = () => {
               <FaSearch className="absolute right-2 top-3 text-lg text-gray-500" />
             </div>
             <div className=" flex gap-4 ">
-              <div className="relative">
+              <Link to="/cart" className="relative">
                 <MdOutlineShoppingCart className="text-2xl cursor-pointer" />
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-yuddyOrange rounded-full transform translate-x-1/2 -translate-y-1/2">
-                  0
+                  {cart.length}
                 </span>
-              </div>
+              </Link>
               <FaRegUser className="text-2xl cursor-pointer" />
             </div>
           </div>
@@ -86,7 +89,12 @@ const Header = () => {
       </div>
       <div className="bg-yuddyOrange e w-full  px-6 xxl:px-44">
         <nav className="container  gap-6 text-base xl:text-lg items-center  hidden lg:flex w-full">
-          <a href="/" className="text-white hover:text-black transition-colors duration-300 ease-out " >Home</a>
+          <a
+            href="/"
+            className="text-white hover:text-black transition-colors duration-300 ease-out "
+          >
+            Home
+          </a>
           {categories.map((category, index) => (
             <div key={index} className="relative group">
               <a
@@ -112,7 +120,12 @@ const Header = () => {
             </div>
           ))}
 
-          <a href="/contact" className="text-white hover:text-black transition-colors duration-300 ease-out ">Contact Us</a>
+          <a
+            href="/contact"
+            className="text-white hover:text-black transition-colors duration-300 ease-out "
+          >
+            Contact Us
+          </a>
         </nav>
 
         {isOpen && (
@@ -151,7 +164,10 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <a href="/contact" className="block py-2 text-white whitespace-nowrap">
+            <a
+              href="/contact"
+              className="block py-2 text-white whitespace-nowrap"
+            >
               Contact Us
             </a>
           </nav>
