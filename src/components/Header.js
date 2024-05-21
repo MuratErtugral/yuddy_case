@@ -8,7 +8,7 @@ import {
   FaAngleDown,
   FaAngleUp,
 } from "react-icons/fa";
-import { MdOutlineShoppingCart, MdOutlineSearch } from "react-icons/md";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,8 +44,8 @@ const Header = () => {
             </button>
             <div className="flex gap-2 items-center">
               <img
-                src="https://media.licdn.com/dms/image/D4D0BAQEqMI-jQQeOSQ/company-logo_200_200/0/1714325250068/jjaliri_logo?e=1724284800&v=beta&t=lkMUc8XXCyXXnAYbbTDSNCN22SIeyHSKw2Qt8UTXT4U"
-                alt="Shopkart Lite"
+                src="/logo.png"
+                alt="Yuddy Logo"
                 className="h-16"
               />
               <h1 className="text-4xl font-semibold font-cursive">
@@ -84,7 +84,7 @@ const Header = () => {
           <FaSearch className="absolute right-2 top-3 text-lg text-gray-500" />
         </div>
       </div>
-      <div className="bg-yuddyOrange e w-full  px-4 xxl:px-44">
+      <div className="bg-yuddyOrange e w-full  px-6 xxl:px-44">
         <nav className="container  gap-6 text-base xl:text-lg items-center  hidden lg:flex w-full">
           <a href="/" className="text-white hover:text-black transition-colors duration-300 ease-out " >Home</a>
           {categories.map((category, index) => (
@@ -140,7 +140,7 @@ const Header = () => {
                         <li key={idx}>
                           <a
                             href={`/category/${subcategory.slug}`}
-                            className="block px-4 te py-2 whitespace-nowrap"
+                            className="block px-4  py-2 whitespace-nowrap"
                           >
                             {subcategory.name}
                           </a>
@@ -151,7 +151,7 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <a href="/contact" className="block py-2 text-white">
+            <a href="/contact" className="block py-2 text-white whitespace-nowrap">
               Contact Us
             </a>
           </nav>

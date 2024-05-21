@@ -54,3 +54,21 @@ body {
   }
 }
 
+
+
+.brand-logo {
+  width: 100px;
+  min-width: 100px;
+  height: auto;
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.brand-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+@media (min-width: 1024px) {
+  .brand-logo{
+    filter: grayscale(100%); 
+  }
+}

@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Banners from "./components/Banners";
 import Products from "./components/Products";
+import Brands from "./components/Brands";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Header />
       <Banners />
       <Products />
+      <Brands />
+      <Footer />
     </Layout>
   );
 }

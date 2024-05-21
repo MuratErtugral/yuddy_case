@@ -20,8 +20,6 @@ const Banners = () => {
       });
   }, []);
 
-  console.log(sliders);
-
   return (
     <div className="w-full relative">
       <Swiper
@@ -34,7 +32,6 @@ const Banners = () => {
         }}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
-        loop={true}
       >
         {sliders.map((banner, index) => (
           <SwiperSlide key={index}>
@@ -44,16 +41,16 @@ const Banners = () => {
                 alt={banner.title}
                 className="w-full "
               />
-              <div className="absolute flex flex-col text-left   top-1/2 transform -translate-y-1/2 right-40 ">
-                <p className="text-lg text-black font-bold ">
+              <div className="absolute flex flex-col text-left   top-1/2 transform -translate-y-1/2 right-5 md:right-10 xl:right-40 ">
+                <p className="text-2xl text-black font-bold ">
                 {banner.title}
               </p>
-              <h1 className="text-[70px]  text-black font-bold  " dangerouslySetInnerHTML={{ __html: banner.header }} />
+              <h1 className="  md:text-[40px] xl:text-[50px] xxl:text-[70px]  text-black font-bold  " dangerouslySetInnerHTML={{ __html: banner.header }} />
            
               <p className="text-sm text-black font-bold ">
                 {banner.subtitle}
               </p>
-              <button className=" w-1/2 px-10 py-2 bg-yuddyOrange hover:bg-darkYuddyOrange mt-4 text-white text-lg rounded-md">
+              <button className=" w-full xxl:w-1/2 px-10 py-2 bg-yuddyOrange hover:bg-darkYuddyOrange mt-4 text-white text-lg rounded-md">
                 Shop Now
               </button>
               </div>

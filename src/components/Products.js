@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
-import ProductModal from './ProductModal';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   useEffect(() => {
     axios.get('https://dummyjson.com/products')
@@ -19,15 +17,7 @@ const Products = () => {
   }, []);
 
 
-  const handleModalOpen = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    setSelectedProduct(null);
-  };
 
   return (
     <div className="flex flex-col mx-auto xl:mx-40 p-6">
@@ -35,10 +25,10 @@ const Products = () => {
       <div className='h-1 w-40 flex items-center justify-center text-center mx-auto bg-yuddyOrange mb-6 '></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map(product => (
-          <ProductCard key={product.id} product={product} onModalOpen={handleModalOpen} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
-      <ProductModal product={selectedProduct} isOpen={isModalOpen} onClose={handleModalClose} />
+      
     </div>
   );
 };

@@ -12,7 +12,7 @@ module.exports = {
         md: "640px",
         lg: "768px",
         xl: "1024px",
-        xxl: "1536px",
+        xxl: "1440px",
       },
       fontSize: {
         "display-large": ["60px", "86.7px"],
