@@ -26,7 +26,7 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #f97316;
+  background-color: transparent;
   color: white;
   border-radius: 50%;
   cursor: pointer;
@@ -35,7 +35,7 @@ body {
 
 .custom-swiper-button-prev:hover,
 .custom-swiper-button-next:hover {
-  background-color: #e6610a; 
+  background-color: #f97316; 
 }
 
 .custom-swiper-button-prev {

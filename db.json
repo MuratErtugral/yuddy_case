@@ -155,13 +155,19 @@
     ],
     "banners": [
         {
-            "image": "https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Professional-E-Commerce-Shoes-Banner-Design.jpg"
+            "image": "https://demo4techies.com/prestashop/shopkart-lite/modules/ps_imageslider/images/8187e2cea6dcd5e1b98a1b1af132211cf94c9a8e_Slider-1.jpg",
+            "title": "MEGA STORE",
+            "header": "TRENDING <br/> FASHION LOOK ",
+            "subtitle": "New Clothes, New Passion.",
+            "url": "/shop"
+
         },
         {
-            "image": "https://img.freepik.com/free-vector/flat-interior-design-home-decor-webinar-template_23-2149612434.jpg"
-        },
-        {
-            "image": "https://as1.ftcdn.net/v2/jpg/02/19/97/02/1000_F_219970281_w4o6A634unEvLwsMOzgQOUYMNkpEA7cx.jpg"
+            "image": "https://demo4techies.com/prestashop/shopkart-lite/modules/ps_imageslider/images/4d4d5897cf3d07949875e686ef53f604262c00c5_Slider-2.jpg",
+            "title": "DRESS WELL",
+            "header": "SUMMER <br/> COLLECTION",
+            "subtitle": "Sale Up To %40 Off.",
+            "url": "/shop"
         }
     ]
 }
