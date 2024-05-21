@@ -15,3 +15,42 @@ body {
 .header-dropdown-hover:hover .header-dropdown {
   display: block;
 }
+.custom-swiper-button-prev,
+.custom-swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f97316;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-swiper-button-prev:hover,
+.custom-swiper-button-next:hover {
+  background-color: #e6610a; 
+}
+
+.custom-swiper-button-prev {
+  left: 10px;
+}
+
+.custom-swiper-button-next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .custom-swiper-button-prev,
+  .custom-swiper-button-next {
+    width: 30px;
+    height: 30px;
+  }
+}
+
