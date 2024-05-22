@@ -28,7 +28,8 @@ const ProductCard = ({ product }) => {
 
   const isInCart = cartItems.some((item) => item.id === product.id);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault();
     dispatch(addToCart(product));
   };
 
@@ -44,7 +45,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-64 object-cover group-hover:opacity-75 transition-opacity duration-300"
         />
         {!isInCart && (
-          <div className="absolute inset-0 -top-20 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-0 top-32 mx-auto flex  h-fit w-fit justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
               onClick={(e) => handleModalOpen(product, e)}
               className="text-gray-700 hover:text-yuddyOrange text-3xl"

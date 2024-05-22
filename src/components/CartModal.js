@@ -21,11 +21,11 @@ const CartModal = () => {
       <div className="bg-white p-6 rounded-lg shadow-lg relative w-11/12 md:w-2/3 lg:w-1/2">
         <button
           onClick={() => dispatch(closeModal())}
-          className="absolute top-4 right-4 text-gray-600"
+          className="absolute text-xl lg:text-3xl top-5 lg:top-6 right-4 lg:right-6 text-gray-600"
         >
           &times;
         </button>
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-sm lg:text-2xl font-bold mb-4">
           Product successfully added to your shopping cart
         </h2>
         <div className="flex justify-between items-center border-b py-4">
@@ -49,14 +49,14 @@ const CartModal = () => {
         <div className="flex justify-between mt-6">
           <Link
             to="/"
-            className="bg-gray-500 text-white py-2 px-4 rounded-md"
+            className="bg-gray-500 text-white py-2 max-w-fit px-2 lg:px-4 rounded-md"
             onClick={() => dispatch(closeModal())}
           >
             Continue Shopping
           </Link>
           <Link
             to="/cart"
-            className="bg-green-500 text-white py-2 px-4 rounded-md"
+            className="bg-green-500 text-white py-2 px-2 lg:px-4 rounded-md"
             onClick={() => dispatch(closeModal())}
           >
             Proceed to Checkout

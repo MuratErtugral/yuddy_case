@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaBars,
   FaTimes,
@@ -16,7 +16,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
-
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
@@ -34,10 +35,18 @@ const Header = () => {
     setOpenCategory(openCategory === index ? null : index);
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${searchQuery}`);
+      setSearchQuery("");
+    }
+  };
+
   return (
     <header>
       <div className="bg-white ">
-        <div className=" flex  xxl:mx-40  justify-between items-center p-4">
+        <div className="flex xxl:mx-40 justify-between items-center p-4">
           <div className="flex items-center">
             <button
               className="lg:hidden text-yuddyOrange "
@@ -57,15 +66,22 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex space-x-4 items-center">
-            <div className="relative hidden lg:block ">
+            <form onSubmit={handleSearch} className="relative hidden lg:block">
               <input
                 type="text"
                 placeholder="Search our catalog"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="px-4 py-2 border rounded-md text-black "
               />
-              <FaSearch className="absolute right-2 top-3 text-lg text-gray-500" />
-            </div>
-            <div className=" flex gap-4 ">
+              <button
+                type="submit"
+                className="absolute right-2 top-1 text-lg text-gray-500 p-2 rounded-r"
+              >
+                <FaSearch />
+              </button>
+            </form>
+            <div className="flex gap-4">
               <Link to="/cart" className="relative">
                 <MdOutlineShoppingCart className="text-2xl cursor-pointer" />
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-yuddyOrange rounded-full transform translate-x-1/2 -translate-y-1/2">
@@ -77,18 +93,25 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden w-full flex items-center justify-center py-4 bg-yuddyGrey ">
-        <div className="relative w-11/12 ">
+      <div className="lg:hidden w-full flex items-center justify-center py-4 bg-yuddyGrey">
+        <form onSubmit={handleSearch} className="relative w-11/12">
           <input
             type="text"
             placeholder="Search our catalog"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="px-4 py-2 w-full border rounded-md text-black "
           />
-          <FaSearch className="absolute right-2 top-3 text-lg text-gray-500" />
-        </div>
+          <button
+            type="submit"
+            className="absolute right-2 top-1 text-lg text-gray-500 p-2 rounded-r"
+          >
+            <FaSearch />
+          </button>
+        </form>
       </div>
-      <div className="bg-yuddyOrange e w-full  px-6 xxl:px-44">
-        <nav className="container  gap-6 text-base xl:text-lg items-center  hidden lg:flex w-full">
+      <div className="bg-yuddyOrange w-full px-6 xxl:px-44">
+        <nav className="container gap-6 text-base xl:text-lg items-center hidden lg:flex w-full">
           <a
             href="/"
             className="text-white hover:text-black transition-colors duration-300 ease-out "
@@ -99,11 +122,11 @@ const Header = () => {
             <div key={index} className="relative group">
               <a
                 href="#"
-                className="flex py-4  text-white hover:text-black transition-colors duration-300 ease-out"
+                className="flex py-4 text-white hover:text-black transition-colors duration-300 ease-out"
               >
                 {category.name}
               </a>
-              <div className="absolute left-0  hidden group-hover:flex flex-col bg-white  shadow-lg min-w-full z-10">
+              <div className="absolute left-0 hidden group-hover:flex flex-col bg-white shadow-lg min-w-full z-10">
                 <ul className="grid grid-cols-2 gap-x-6 min-w-96">
                   {category.subcategories.map((subcategory, idx) => (
                     <li key={idx}>
@@ -119,7 +142,6 @@ const Header = () => {
               </div>
             </div>
           ))}
-
           <a
             href="/contact"
             className="text-white hover:text-black transition-colors duration-300 ease-out "
@@ -127,7 +149,6 @@ const Header = () => {
             Contact Us
           </a>
         </nav>
-
         {isOpen && (
           <nav className="lg:hidden bg-yuddyOrange p-4">
             <a href="/" className="block py-2 text-white">
@@ -153,7 +174,7 @@ const Header = () => {
                         <li key={idx}>
                           <a
                             href={`/category/${subcategory.slug}`}
-                            className="block px-4  py-2 whitespace-nowrap"
+                            className="block px-4 py-2 whitespace-nowrap"
                           >
                             {subcategory.name}
                           </a>
