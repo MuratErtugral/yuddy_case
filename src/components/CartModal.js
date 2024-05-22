@@ -1,14 +1,18 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { closeModal } from '../features/carts/cartSlice';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { closeModal } from "../features/carts/cartSlice";
 
 const CartModal = () => {
   const dispatch = useDispatch();
-  const { isOpen, product } = useSelector((state) => state.cart.modal);
+  const { isOpen, product, discountPrice, quantity } = useSelector(
+    (state) => state.cart.modal
+  );
   const cartItems = useSelector((state) => state.cart.cart);
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.discountPrice * item.quantity, 0);
-
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.discountPrice * item.quantity,
+    0
+  );
 
   if (!isOpen || !product) return null;
 
@@ -21,16 +25,26 @@ const CartModal = () => {
         >
           &times;
         </button>
-        <h2 className="text-2xl font-bold mb-4">Product successfully added to your shopping cart</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          Product successfully added to your shopping cart
+        </h2>
         <div className="flex justify-between items-center border-b py-4">
-          <img src={product.thumbnail} alt={product.title} className="w-20 h-20 object-cover" />
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            className="w-20 h-20 object-cover"
+          />
           <div className="flex-1 ml-4">
             <h2 className="text-xl">{product.title}</h2>
-            <p className="text-gray-600">${product.discountPrice} x {product.quantity}</p>
+            <p className="text-gray-600">
+              ${discountPrice} x {quantity}
+            </p>
           </div>
         </div>
         <div className="mt-4">
-          <p className="text-right font-bold">Total: ${totalPrice.toFixed(2)}</p>
+          <p className="text-right font-bold">
+            Total: ${totalPrice.toFixed(2)}
+          </p>
         </div>
         <div className="flex justify-between mt-6">
           <Link

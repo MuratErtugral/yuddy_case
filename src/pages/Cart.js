@@ -33,15 +33,19 @@ const Cart = () => {
 
   return (
     <Layout>
-      <h1 className="text-4xl font-bold mb-2 text-center mt-4">Shopping Cart</h1>
+      <h1 className="text-4xl font-bold mb-2 text-center mt-4">
+        Shopping Cart
+      </h1>
       <div className="h-1 w-40 flex items-center justify-center text-center mx-auto bg-orange-500 mb-6"></div>
       <div className="flex flex-col md:flex-row justify-between mx-4 xxl:mx-40">
         <div className="flex-1">
           {cartItems.length === 0 ? (
             <div className="text-center text-2xl">
               <p>There are no more items in your cart.</p>
-              <Link to="/" className="text-blue-500 hover:underline">
-                Continue shopping
+              <Link to="/">
+                <button className=" px-8 py-4 border  border-yuddyOrange text-yuddyOrange rounded-md hover:bg-yuddyOrange hover:text-white transition-all duration-300 ease-in mt-4  ">
+                  Continue shopping
+                </button>
               </Link>
             </div>
           ) : (
@@ -51,11 +55,13 @@ const Cart = () => {
                   key={index}
                   className="flex justify-between items-center border-b py-4"
                 >
-                  <img
-                    src={item.thumbnail}
-                    alt={item.title}
-                    className="w-20 h-20 object-cover"
-                  />
+                  <Link to={`/product/${item.id}`}>
+                    <img
+                      src={item.thumbnail}
+                      alt={item.title}
+                      className="w-20 h-20 object-cover"
+                    />
+                  </Link>
                   <div className="flex-1 ml-4">
                     <h2 className="text-xl">{item.title}</h2>
                     <p className="text-gray-600">

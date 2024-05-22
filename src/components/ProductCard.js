@@ -12,9 +12,16 @@ const ProductCard = ({ product }) => {
   const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
-  const handleModalOpen = (product) => {
+  const handleModalOpen = (product, event) => {
+    event.preventDefault();
     setSelectedProduct(product);
     setIsModalOpen(true);
+  };
+
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    dispatch(addToCart(product));
   };
 
   const handleModalClose = () => {
@@ -27,22 +34,21 @@ const ProductCard = ({ product }) => {
 
   const isInCart = cartItems.some((item) => item.id === product.id);
 
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
-
   return (
     <>
-      <div className="relative border bg-gray-200 rounded-lg overflow-hidden group">
+      <Link
+        to={`/product/${product.id}`}
+        className="relative border bg-gray-200 rounded-lg overflow-hidden group"
+      >
         <img
           src={product.thumbnail}
           alt={product.title}
           className="w-full h-64 object-cover group-hover:opacity-75 transition-opacity duration-300"
         />
         {!isInCart && (
-          <div className="absolute h-[200px] inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+          <div className="absolute h-fit top-32 right-32 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
             <button
-              onClick={() => handleModalOpen(product)}
+              onClick={(e) => handleModalOpen(product, e)}
               className="text-gray-700 hover:text-yuddyOrange text-3xl"
             >
               <FaSearch />
@@ -72,21 +78,21 @@ const ProductCard = ({ product }) => {
             {isInCart ? (
               <Link
                 to="/cart"
-                className="bg-darkYuddyOrange hover:bg-yuddyOrange transition duration-300 ease-in-out  text-white py-2 px-4 mt-4 w-3/4 rounded-md text-center"
+                className="bg-darkYuddyOrange hover:bg-yuddyOrange transition duration-300 ease-in-out text-white py-2 px-4 mt-4 w-3/4 rounded-md text-center"
               >
                 GO TO CART
               </Link>
             ) : (
               <button
                 onClick={handleAddToCart}
-                className="bg-black hover:bg-yuddyOrange transition duration-300 ease-in-out  text-white py-2 px-4 mt-4 w-3/4 rounded-md"
+                className="bg-black hover:bg-yuddyOrange transition duration-300 ease-in-out text-white py-2 px-4 mt-4 w-3/4 rounded-md"
               >
                 ADD TO CART
               </button>
             )}
           </div>
         </div>
-      </div>
+      </Link>
       <ProductModal
         product={selectedProduct}
         isOpen={isModalOpen}
