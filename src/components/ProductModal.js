@@ -20,10 +20,6 @@ const ProductModal = ({ product, isOpen, onClose }) => {
     const productToCart = {
       ...product,
       quantity,
-      discountPrice: (
-        product.price -
-        (product.price * product.discountPercentage) / 100
-      ).toFixed(2),
     };
     dispatch(addToCart(productToCart));
     onClose();

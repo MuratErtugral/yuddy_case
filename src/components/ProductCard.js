@@ -22,7 +22,8 @@ const ProductCard = ({ product }) => {
     setSelectedProduct(null);
   };
 
-  const discountedPrice = product.price * (1 - product.discountPercentage / 100);
+  const discountedPrice =
+    product.price * (1 - product.discountPercentage / 100);
 
   const isInCart = cartItems.some((item) => item.id === product.id);
 
@@ -71,14 +72,14 @@ const ProductCard = ({ product }) => {
             {isInCart ? (
               <Link
                 to="/cart"
-                className="bg-yuddyOrange text-white py-2 px-4 mt-4 w-3/4 rounded-md text-center"
+                className="bg-darkYuddyOrange hover:bg-yuddyOrange transition duration-300 ease-in-out  text-white py-2 px-4 mt-4 w-3/4 rounded-md text-center"
               >
                 GO TO CART
               </Link>
             ) : (
               <button
                 onClick={handleAddToCart}
-                className="bg-black text-white py-2 px-4 mt-4 w-3/4 rounded-md"
+                className="bg-black hover:bg-yuddyOrange transition duration-300 ease-in-out  text-white py-2 px-4 mt-4 w-3/4 rounded-md"
               >
                 ADD TO CART
               </button>

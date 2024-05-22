@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -27,9 +27,13 @@ const Cart = () => {
     dispatch(decrementQuantity(productId));
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <Layout>
-      <h1 className="text-2xl font-bold mb-2 text-center">Shopping Cart</h1>
+      <h1 className="text-4xl font-bold mb-2 text-center mt-4">Shopping Cart</h1>
       <div className="h-1 w-40 flex items-center justify-center text-center mx-auto bg-orange-500 mb-6"></div>
       <div className="flex flex-col md:flex-row justify-between mx-4 xxl:mx-40">
         <div className="flex-1">
