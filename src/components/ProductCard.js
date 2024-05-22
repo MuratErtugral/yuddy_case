@@ -12,16 +12,10 @@ const ProductCard = ({ product }) => {
   const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
-  const handleModalOpen = (product, event) => {
-    event.preventDefault();
+  const handleModalOpen = (product, e) => {
+    e.preventDefault();
     setSelectedProduct(product);
     setIsModalOpen(true);
-  };
-
-  const handleAddToCart = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    dispatch(addToCart(product));
   };
 
   const handleModalClose = () => {
@@ -33,6 +27,10 @@ const ProductCard = ({ product }) => {
     product.price * (1 - product.discountPercentage / 100);
 
   const isInCart = cartItems.some((item) => item.id === product.id);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
 
   return (
     <>
@@ -46,7 +44,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-64 object-cover group-hover:opacity-75 transition-opacity duration-300"
         />
         {!isInCart && (
-          <div className="absolute h-fit top-32 right-32 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+          <div className="absolute inset-0 -top-20 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
               onClick={(e) => handleModalOpen(product, e)}
               className="text-gray-700 hover:text-yuddyOrange text-3xl"

@@ -20,7 +20,7 @@ const Products = () => {
 
 
   return (
-    <div className="flex flex-col mx-auto xl:mx-40 p-6">
+    <div className="flex flex-col mx-auto xxl:mx-40 p-6">
       <h2 className="text-4xl text-center font-bold mb-2">Popular Products</h2>
       <div className='h-1 w-40 flex items-center justify-center text-center mx-auto bg-yuddyOrange mb-6 '></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
