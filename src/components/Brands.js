@@ -16,10 +16,10 @@ const Brands = () => {
   }, []);
 
   return (
-    <div className=" py-12 mx-6 xxl:mx-40">
+    <div className=" py-12 mx-6 xxl:mx-40 ">
       <h2 className="text-3xl font-bold text-center mb-2">BRANDS</h2>
       <div className='h-1 w-40 flex items-center justify-center text-center mx-auto bg-orange-500 mb-6'></div>
-      <div className="flex justify-center gap-6 w-full items-center py-4  overflow-x-scroll md:overflow-x-auto ">
+      <div className="flex w-full items-center py-4 gap-6 overflow-x-scroll md:overflow-x-auto ">
         {brands.map((brand, index) => (
           <div key={index} >
             <img src={brand.image} alt={brand.name} className="brand-logo" />
