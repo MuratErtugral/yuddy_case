@@ -83,15 +83,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               </span>
             </div>
             <p className="text-gray-700 mb-4">{product.description}</p>
-            <ul className="list-disc list-inside mb-4">
-              <li>Ut enim ad minima veniam, quis nostrum exercitationem.</li>
-              <li>Nisi ut aliquid ex ea commodi consequatur.</li>
-              <li>
-                Quis autem vel eum iure reprehenderit qui in ea voluptate.
-              </li>
-              <li>Velit esse quam nihil molestiae consequatur, vel illum.</li>
-              <li>Dolorem eum fugiat quo voluptas nulla pariatur.</li>
-            </ul>
+          
             <div className="flex items-center mb-4">
               <span className="mr-2">Quantity:</span>
               <input
