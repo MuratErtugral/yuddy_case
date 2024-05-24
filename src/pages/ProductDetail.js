@@ -162,19 +162,19 @@ const ProductDetail = () => {
 
             <div className="flex space-x-4 mt-6">
               <a
-                href="#"
+                href="/"
                 className="border border-gray-400 rounded-sm p-2 text-gray-600 hover:text-blue-500"
               >
                 <FaFacebook size="2em" />
               </a>
               <a
-                href="#"
+                href="/"
                 className="border border-gray-400 rounded-sm p-2 text-gray-600 hover:text-blue-500"
               >
                 <FaTwitter size="2em" />
               </a>
               <a
-                href="#"
+                href="/"
                 className="border border-gray-400 rounded-sm p-2 text-gray-600 hover:text-blue-500"
               >
                 <FaPinterest size="2em" />

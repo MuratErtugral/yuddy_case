@@ -11,16 +11,17 @@ const ProductList = ({ products, title }) => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true); 
 
+
   useEffect(() => {
     setFilteredProducts(products);
-    const uniqueBrands = [...new Set(products.map(product => product.brand.trim()))];
+    const uniqueBrands = [...new Set(products.map(product => product.brand))];
     setBrands(uniqueBrands);
     setIsLoading(false); 
   }, [products]);
 
   useEffect(() => {
     filterProducts();
-  }, [selectedBrands, priceRange, sortOrder]);
+  }, [selectedBrands, priceRange, sortOrder])
 
   const handleBrandChange = (brand) => {
     setSelectedBrands(
@@ -41,7 +42,7 @@ const ProductList = ({ products, title }) => {
   const filterProducts = () => {
     let filtered = products.filter(
       (product) =>
-        (!selectedBrands.length || selectedBrands.includes(product.brand.trim())) &&
+        (!selectedBrands.length || selectedBrands.includes(product.brand)) &&
         product.price >= priceRange[0] &&
         product.price <= priceRange[1]
     );

@@ -121,7 +121,7 @@ const Header = () => {
           {categories.map((category, index) => (
             <div key={index} className="relative group">
               <a
-                href="#"
+                href="/"
                 className="flex py-4 text-white hover:text-black transition-colors duration-300 ease-out"
               >
                 {category.name}
